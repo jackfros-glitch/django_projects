@@ -1,5 +1,5 @@
 from django import forms
-from .models import Ads
+from .models import Ads, Comment
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from .humanize import naturalsize
 
@@ -13,7 +13,7 @@ class CreateForm(forms.ModelForm):
 
     class Meta:
         model = Ads
-        fields = ['title','text','picture']
+        fields = ['title','text', 'price', 'picture']
 
     #validate the size of the uploaded picture file
     def clean(self):
@@ -38,5 +38,8 @@ class CreateForm(forms.ModelForm):
             instance.save()
 
         return instance
+
+class CommentForm(forms.Form):
+    comment = forms.CharField(required=True, max_length=500, min_length=3, strip=True)
 
 

@@ -1,3 +1,8 @@
+'''ads.Comment.ad: (fields.E303) Reverse query name for 'ads.Comment.ad' clashes with field name 'ads.Ads.comment'.
+        HINT: Rename field 'ads.Ads.comment', or add/change a related_name argument to the definition for field 'ads.C
+omment.ad'.
+get url's are idempotent
+'''
 import csv
 
 from unesco.models import Site, Region, State, Category, Iso
